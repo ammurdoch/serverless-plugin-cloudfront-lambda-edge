@@ -157,8 +157,10 @@ module.exports = Class.extend({
       }
 
       fnAssociations.push({
-         EventType: evtType,
-         IncludeBody: !!incBody,
+         EventType: {
+            evtType,
+            IncludeBody: !!incBody,
+         },
          LambdaFunctionARN: { Ref: versionLogicalID },
       });
 
