@@ -94,6 +94,7 @@ module.exports = Class.extend({
           fnObj = template.Resources[fnLogicalName],
           fnProps = template.Resources[fnLogicalName].Properties,
           evtType = lambdaAtEdge.eventType,
+          incBody = lambdaAtEdge.includeBody,
           output = template.Outputs[outputName],
           dist = template.Resources[distName],
           retainFunctions = this._custom && this._custom.lambdaAtEdge && (this._custom.lambdaAtEdge.retain === true),
@@ -157,6 +158,7 @@ module.exports = Class.extend({
 
       fnAssociations.push({
          EventType: evtType,
+         IncludeBody: !!incBody,
          LambdaFunctionARN: { Ref: versionLogicalID },
       });
 
